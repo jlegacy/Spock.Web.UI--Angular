@@ -1,0 +1,68 @@
+<div class="row nestedPage">
+    <div class="col-md-10">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="glyphicon glyphicon-tasks pageHeaderIcon"></span> Profile Management
+            </div>
+            <div class="col-md-12 addContainer">
+                <a class="btn btn-default" href="#CreateProfile"><span class="glyphicon glyphicon-plus-sign addButton"></span> Add New Profile</a>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+
+
+                <table id="profilesListTable" class="display cell-border" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="sorting">Print Profile</th>
+                            <th class="sorting">Description</th>
+                            <th class="sorting">Security Regions</th>
+                            <th class="sorting">Print Trace</th>
+                            <th class="sorting">Modified</th>
+                            <th class="sorting_asc_disabled sorting_desc_disabled">Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th class="sorting">Print Profile</th>
+                            <th class="sorting">Description</th>
+                            <th class="sorting">Security Regions</th>
+                            <th class="sorting">Print Trace</th>
+                            <th class="sorting">Modified</th>
+                            <th class="sorting_asc_disabled sorting_desc_disabled">Actions</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        {{#each this}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{description}}</td>
+                            <td>{{SecurityRegions}}</td>
+                            <td>{{PrintTrace}}</td>
+                            <td>{{modified}}</td>
+                            <td>
+                                <a id="DetailsProfile" href="#DetailsProfile/{{id}}">Details</a> |
+                                <a id="EditProfile" href="#EditProfile/{{id}}">Edit</a> |
+                                <a id="DeleteProfile" href="#DeleteProfile/{{id}}">Delete</a> |
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#profilesListTable').DataTable();
+    });
+</script> 

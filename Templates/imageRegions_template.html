@@ -1,0 +1,274 @@
+
+<div class="row nestedPage">
+    <div class="col-md-5">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="glyphicon glyphicon-print pageHeaderIcon"></span> {{title}}
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+               
+                <div class="panel panel-default">
+                    <div class="panel-heading userPanelHeader">
+                        <span>General Settings</span>
+                        {{#if editAttribute}}
+                        <span class="btnEdit"><a id="EditImageRegions" class="btn btn-default" href="#EditImageRegions/{{id}}">Edit</a></span>
+                        {{else}}
+                        <span class="btnEdit"><a class="btn btn-default" href="#ImageRegionsList">Cancel</a></span>
+                        {{/if}}
+                    </div>
+                    <!---->
+                    <div class="panel-body">
+                        <form class="form-horizontal" id="ImageRegionsForm" method="post" role="form">
+						
+						  
+                            <div class="form-group">
+                                <label for="profile" class="col-sm-4 control-label">Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" {{editAttribute}} class="form-control" name="name" placeholder="Name" value={{name}}>
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="form-group">
+                                <label for="profile" class="col-sm-4 control-label">Description</label>
+                                <div class="col-sm-8">
+                                    <input type="text" {{editAttribute}} class="form-control" name="description"  value={{description}}>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <br/>
+                <br/>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading userPanelHeader">
+                        <span>Image Details</span>
+                    </div>
+                    <!---->
+                    <div class="panel-body">
+                        <form class="form-horizontal" id="ImageRegionsForm" method="post" role="form">
+
+                            <div class="form-group">
+                                <label for="profile" class="col-sm-4 control-label">Image</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <input type="text" readonly class="form-control" id="imageAsBase64String" name="imageAsBase64String" value={{imageAsBase64String}}>
+                                        <span class="input-group-btn">
+                                            <span class="btn btn-primary btn-file">
+                                                Browse&hellip; <input type="file" accept="image">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="enabled" class="col-sm-4 control-label">Preserve Image Size</label>
+                                <div class="col-sm-1">
+                                    {{#if editAttribute}}
+                                    {{#if enabled}}
+                                    <input type="checkbox" {{editAttribute}} class="form-control" id="stretchImageToFitRegion" name="stretchImageToFitRegion" disabled checked>
+                                    {{else}}
+                                    <input type="checkbox" {{editAttribute}} class="form-control" id="stretchImageToFitRegion" name="stretchImageToFitRegion" disabled>
+                                    {{/if}}
+                                    {{else}}
+                                    {{#if enabled}}
+                                    <input type="hidden" name="stretchImageToFitRegion" id="stretchImageToFitRegion" value="True" />
+                                    <input type="checkbox" {{editAttribute}} class="form-control" id="stretchImageToFitRegionMock" name="stretchImageToFitRegionMock" checked>
+                                    {{else}}
+                                    <input type="hidden" name="stretchImageToFitRegion" id="stretchImageToFitRegion" value="False" />
+                                    <input type="checkbox" {{editAttribute}} class="form-control" id="stretchImageToFitRegionMock" name="stretchImageToFitRegionMock">
+                                    {{/if}}
+                                    {{/if}}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Opacity</label>
+                                <div class="col-sm-6">
+                                    <!--<input type="text" {{editAttribute}} class="form-control" name="opacity" placeholder="Opacity" value={{opacity}}>-->
+                                    <div class="col-md-12 opacityHolder">
+                                        <div class="col-md-9 opacitySlider" id="slider-range-max"></div>&nbsp; &nbsp;<div class="col-md-2 opacityDigit" id="opacityValue"> &nbsp; &nbsp;R</div>
+                                        <input type="hidden" name="opacity" id="opacity" value="{{opacity}}">
+                                    </div>     
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                
+                <br />
+                <br />
+
+                <div class="panel panel-default">
+                    <div class="panel-heading userPanelHeader">
+                        <span>Positioning and Layout</span>
+                    </div>
+                    <!---->
+                    <div class="panel-body">
+                        <form class="form-horizontal" id="ImageRegionsForm" method="post" role="form">
+
+
+                            <div class="col-md-12">
+                                <label>Layout</label>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-md-3 col-md-offset-1 control-label subLabel">Duplex</label>
+                                <div class="col-md-4">
+                                    <select {{editAttribute}} class="form-control" name="duplex">
+                                        <option>Front Only</option>
+                                        <option>Front & Back</option>
+                                        <option>Back Only</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-md-3 col-md-offset-1 control-label subLabel">Rotaion Angle</label>
+                                <div class="col-md-4">
+                                    <select {{editAttribute}} class="form-control" name="rotation">
+                                        <option>45</option>
+                                        <option>90</option>
+                                        <option>135</option>
+                                        <option>180</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>Positioning</label>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-md-4 control-label">Rotation</label>
+                                <div class="col-md-8">
+                                    <div>
+                                        <input type="text" {{editAttribute}} length="30px" class="form-control" name="topLeft.x" value={{topLeft.x}}>
+                                    </div>
+                                    <div>
+                                        <label class=" subLabel"> X </label>
+                                    </div>
+                                    <div>
+                                        <input type="text" {{editAttribute}} class="form-control" name="topLeft.y" value={{topLeft.y}}>
+                                    </div>
+                                    <div>
+                                        <label class=" subLabel"> Y </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="destinationPrintQueueName" class="col-sm-4 control-label">Bottom Right X</label>
+                                <div class="col-sm-8">
+
+                                    <input type="text" {{editAttribute}} class="form-control" name="bottomRight.x" placeholder="Bottom Left x" value={{bottomRight.x}}>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="destinationPrintQueueName" class="col-sm-4 control-label">Bottom Right Y</label>
+                                <div class="col-sm-8">
+
+
+                                    <input type="text" {{editAttribute}} class="form-control" name="bottomRight.y" placeholder="Bottom Left y" value={{bottomRight.y}}>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+                <div><button type="button" id="ImageRegionsSubmit" class="btn btnKermit btnRight">{{buttonText}}</button></div>
+            </div>
+        </div>
+    </div>
+
+            <div class="col-md-3 verticalLine">
+                <span class="glyphicon glyphicon glyphicon-question-sign pageHelpIcon"></span> <span class="helpTextHeader">Print ImageRegions</span><br />
+                <span class="helpText">
+                    Lorem ipsum dolor sit amet, consectetuer
+                    adipiscing elit, sed diam nonummy nibh
+                    euismod tincidunt ut laoreet dolore magna
+                    aliquam erat volutpat. Ut wisi enim ad
+                    minim veniam, quis nostrud exerci tation
+                    ullamcorper suscipit lobortis nisl ut aliquip
+                    ex ea commodo consequat.
+                    Duis autem vel eum iriure dolor in
+                    hendrerit in vulputate velit ese molestie
+                    consequat, vel illum dolore eu feugiat nulla
+
+
+                </span>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+         
+            function printValue(sliderID, textbox) {
+                var x = document.getElementById(textbox);
+                var y = document.getElementById(sliderID);
+                x.value = y.value;
+            }
+
+            $(document).on('change', '.btn-file :file', function () {
+                var input = $(this),
+                    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                input.trigger('fileselect', [numFiles, label]);
+            });
+
+            $(document).ready(function () {
+                $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
+
+                    var input = $(this).parents('.input-group').find(':text'),
+                        log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+                    if (input.length) {
+                        input.val(log);
+                    } else {
+                        if (log) alert(log);
+                    }
+
+                });
+            });
+
+            $("#stretchImageToFitRegionMock").click(function () {
+                var currentEnabled = $("#stretchImageToFitRegion").val();
+                if (currentEnabled == "True") {
+                    $("#stretchImageToFitRegion").val("False");
+                }
+                else {
+                    $("#stretchImageToFitRegion").val("True");
+                }
+            });
+
+            $(function () {
+                $("#slider-range-max").slider({
+                    range: "max",
+                    step: 0.1,
+                    min: 0,
+                    max: 1,
+                    value: 1,
+                    slide: function (event, ui) {
+                        $("#amount").val(ui.value);
+                        $("#opacityValue").text(ui.value);
+                    }
+                });
+                $("#amount").val($("#slider-range-max").slider("value"));
+                $("#opacityValue").text($("#slider-range-max").slider("value"));
+            });
+
+        </script>

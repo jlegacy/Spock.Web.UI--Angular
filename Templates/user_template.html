@@ -1,0 +1,82 @@
+
+
+<div class="row nestedPage">
+    <div class="col-md-5">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="glyphicon glyphicon-user pageHeaderIcon"></span> {{title}}
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading userPanelHeader"><span>Personal Settings</span><span class="btnEdit"><a class="btn btn-default" href="#ListUsers">Cancel</a></span> </div>
+            <!---->
+            <div class="panel-body">
+                <form id="UserForm" class="form-horizontal" method="post" role="form">
+                    <div class="form-group">
+                        <label for="firstName" class="col-sm-4 control-label">First Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="firstName" errorName="First Name" name="firstName" placeholder="Enter First Name" value={{firstName}}>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-4 control-label">Last Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="lastName" errorName="Last Name" name="lastName" placeholder="Enter Last Name" value={{lastName}}>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="col-sm-4 control-label">Email Address</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="email" errorName="Email" name="email" placeholder="Enter Email address" value={{email}}>
+                        </div>
+                    </div>
+
+                    {{#if create}}
+
+                    <div class="form-group">
+                        <label for="newPassword" class="col-sm-4 control-label">New Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="password" errorName="New Password" name="password" placeholder="New Password">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword" class="col-sm-4 control-label">Confirm Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="confirmPassword" errorName="Confirm Password" name="confirmPassword" placeholder="Confirm Password">
+                        </div>
+                    </div>
+
+                    {{/if}}
+					
+					<div id="errorPanel"></div>
+                    <div><button type="button" id="UserSubmit" class="btn btnKermit btnRight">{{buttonText}}</button></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 verticalLine">
+        <span class="glyphicon glyphicon glyphicon-question-sign pageHelpIcon"></span> <span class="helpTextHeader">{{title}}</span><br />
+        <span class="helpText">
+            Lorem ipsum dolor sit amet, consectetuer
+            adipiscing elit, sed diam nonummy nibh
+            euismod tincidunt ut laoreet dolore magna
+            aliquam erat volutpat. Ut wisi enim ad
+            minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip
+            ex ea commodo consequat.
+            Duis autem vel eum iriure dolor in
+            hendrerit in vulputate velit esse molestie
+            consequat, vel illum dolore eu feugiat nulla
+
+
+        </span>
+    </div>
+</div>
+
+

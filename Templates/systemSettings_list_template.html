@@ -1,0 +1,73 @@
+
+
+<div class="row nestedPage">
+    <div class="col-md-10">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="glyphicon glyphicon-print pageHeaderIcon"></span> SystemSettings Management
+            </div>
+            <div class="col-md-12 addContainer">
+                <a class="btn btn-default" href="#CreateSystemSettings"><span class="glyphicon glyphicon-plus-sign addButton"></span> Add New SystemSettings</a>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+
+                <table id="usersListTable" class="display cell-border" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="sorting">Expiration Date</th>
+                            <th class="sorting">Language</th>
+                            <th class="sorting">Number Of Licenses</th>
+							<th class="sorting">Number Of Licenses In Use</th>
+							<th class="sorting">Type Of Licenses</th>
+							<th class="sorting">Units</th>
+							<th class="sorting">Version</th>
+                            <th class="sorting_asc_disabled sorting_desc_disabled"></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                            <tr>
+                            <th class="sorting">Expiration Date</th>
+                            <th class="sorting">Language</th>
+                            <th class="sorting">Number Of Licenses</th>
+							<th class="sorting">Number Of Licenses In Use</th>
+							<th class="sorting">Type Of Licenses</th>
+							<th class="sorting">Units</th>
+							<th class="sorting">Version</th>
+                                <th> </th>
+                            </tr>
+                        </tfoot>
+                    <tbody>
+
+                      
+                        <tr>
+                            <td>{{expirationDate}}</td>
+                            <td>{{language}}</td>
+                            <td>{{numberOfLicenses}}</td>
+							 <td>{{numberOfLicensesInUse}}</td>
+                            <td>{{typeOfLicense}}</td>
+                            <td>{{units}}</td>
+							 <td>{{version}}</td>
+                     
+                            <td>
+                               <a id="AddLicenseSystemSettings" href="#AddLicenseSystemSettings/">Add License</a> |
+                               <a id="EditLanguageSystemSettings" href="#EditLanguageSystemSettings/">Update Language</a> |
+                            </td>
+                        </tr>
+                       
+
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#usersListTable').DataTable();
+    });
+</script> 

@@ -1,0 +1,65 @@
+
+
+<div class="row nestedPage">
+    <div class="col-md-10">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="glyphicon glyphicon-print pageHeaderIcon"></span> User Management
+            </div>
+            <div class="col-md-12 addContainer">
+                <a class="btn btn-default" href="#CreateUser"><span class="glyphicon glyphicon-plus-sign addButton"></span> Add New User</a>
+            </div>
+        </div>
+        <!--<div class="row">
+            <a class="btn btn-default" href="#CreateUser"><span class="glyphicon glyphicon-plus-sign addButton"></span> Add New User</a>
+        </div>-->
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+
+                <table id="usersListTable" class="display cell-border" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="sorting">FirstName</th>
+                            <th class="sorting">LastName</th>
+                            <th class="sorting">Email</th>
+                            <th class="sorting_asc_disabled sorting_desc_disabled"></th>
+                        </tr>
+                    </thead>
+                    <!--<tfoot>
+                            <tr>
+                                <th class="sorting">FirstName</th>
+                                <th class="sorting">LastName</th>
+                                <th class="sorting">Email</th>
+                                <th> </th>
+                            </tr>
+                        </tfoot>-->
+                    <tbody>
+
+                        {{#each this}}
+                        <tr>
+                            <td>{{firstName}}</td>
+                            <td>{{lastName}}</td>
+                            <td>{{email}}</td>
+
+                            <td>
+                                <a id="EditUser" href="#EditUser/{{id}}">Edit</a> |
+                                <a id="DeleteUser" href="#DeleteUser/{{id}}">Delete</a> |
+                                <a id="ResetPassword" href="#ResetPassword/{{id}}">Reset Password</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#usersListTable').DataTable();
+    });
+</script> 

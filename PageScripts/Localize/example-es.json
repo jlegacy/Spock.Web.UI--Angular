@@ -1,0 +1,15 @@
+{
+  "greeting": "Spanish, You are Logged In!!!",
+  "search": {
+    "placeholder": "Searcho...",
+    "button": "Vamos!"
+  },
+  "footer": {
+    "disclaimer": "Bewaro."
+  },
+  "menu": {
+    "dashboard": "Dashboardo",
+    "list": "Bug Listo",
+    "logout": "Exito"
+  }
+}

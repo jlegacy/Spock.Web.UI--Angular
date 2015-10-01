@@ -1,0 +1,68 @@
+
+<div class="row nestedPage">
+    <div class="col-md-10">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="glyphicon glyphicon-print pageHeaderIcon"></span> Virtual Print PrintTraceRegions
+            </div>
+
+            <div class="col-md-12 addContainer">
+                <a class="btn btn-default" href="#CreatePrintTraceRegions"><span class="glyphicon glyphicon-plus-sign addButton"></span> Add New Print Regions</a>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+
+                <table id="printTraceRegionsListTable" class="display cell-border" cellspacing="0" width="100%">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting">Background Color</th>
+                            <th class="sorting">Border Color</th>
+                            <th class="sorting">Border Thickness</th>
+                           
+                            <th class="sorting">Description</th>
+							<th class="sorting">Duplex Mode</th>
+						
+							<th class="sorting">Name</th>
+							
+							<th class="sorting">Transform</th>
+							
+                            <th class="sorting_asc_disabled sorting_desc_disabled"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {{#each this}}
+                        <tr>
+                            <td>{{backgroundColor}}</td>
+                            <td>{{borderColor}}</td>
+                            <td>{{borderThickness}}</td>                          
+							<td>{{description}}</td>
+							<td>{{duplexMode}}</td>					
+							<td>{{name}}</td>						
+							<td>{{transform}}</td>
+                            <td>
+                                <a id="EditPrintTraceRegions" href="#EditPrintTraceRegions/{{id}}">Edit</a> |
+                                <a id="DisplayPrintTraceRegions" href="#DisplayPrintTraceRegions/{{id}}">Details</a> |
+								<a id="DeletePrintTraceRegions" href="#DeletePrintTraceRegions/{{id}}">Delete</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#printTraceRegionsListTable').DataTable();
+    });
+</script> 
+
