@@ -1,13 +1,15 @@
 (function () {
 	var $App = function () {};
+	
+	$App.admin = false;
+	
+	$App.scotchApp = angular.module('scotchApp', ['ui.router']);
 
 	var parseErrorMessage = function (errors) {
 		var errObj = {};
-		var jQueryDomElementMessage = "";
+		var jQueryDomElementMessage = ""; 
 
-		errObj = JSON.parse(errors);
-
-		_.each(errObj, function (value, key) {
+		_.each(errors, function (value, key) {
 			jQueryDomElementMessage += value;
 		});
 
@@ -22,9 +24,7 @@
 		var lineLabel;
 		var element;
 
-		errObj = JSON.parse(errors);
-
-		_.each(errObj, function (value, key) {
+		_.each(errors, function (value, key) {
 			element = $(document.getElementsByName(key));
 			element.addClass('error');
 			lineLabel = element.attr('errorName');
@@ -49,14 +49,14 @@
 				template = Handlebars.compile(data);
 			},
 			error : function (data) {
-				console.log(data);
+				alert('error loading template');
 			}
 		});
 
 		return template;
 	},
 
-	$App.CheckMessageStatus = function (result, title, type) {
+	$App.CheckMessageStatus = function (result, title, type, location) {
 		//reset fields//
 		var messages = "";
 		$('.error').removeClass("error");
@@ -64,12 +64,12 @@
 
 		switch (result.status) {
 		case 400:
-			if (parseErrorMessage(result.responseText) === 'License Expired' || parseErrorMessage(result.responseText) === 'Invalid License') {
-				$App.DAlert(parseErrorMessage(result.responseText), title, type);
+			if (result.statusText === 'License Expired' || result.statusText === 'Invalid License') {
+				$App.DAlert(result.statusText, title, type);
 				routie('Error400/');
 			} else {
 				$App.DAlert('Fix Errors in Fields', title, type);
-				SetFieldErrors(result.responseText);
+				SetFieldErrors(result.data);
 			}
 			break;
 		case 500:
@@ -77,25 +77,25 @@
 			break;
 		case 401:
 			$App.ClearSession();
-			routie('Error401/');
+			location.path('/Error401/');
 			break;
 		case 402:
 			$App.ClearSession();
-			routie('Error402/');
+			location.path('/Error402/');
 			break;
 		case 404:
 			$App.ClearSession();
-			routie('Error404/');
+			location.path('/Error404/');
 			break;
 		case 200:
-			$App.DAlert(result.responseText, title, type);
+			$App.DAlert(result.statusText, title, type);
 			break;
 		case 0:
 			$App.DAlert('Unexpected Server Error - Status 0', title, type);
 			break;
 		default:
-			$App.DAlert(parseErrorMessage(result.responseText), title, type);
-			routie('Main/');
+			$App.DAlert(parseErrorMessage(result.statusText), title, type);
+			location.path('/Main/');
 		}
 	},
 

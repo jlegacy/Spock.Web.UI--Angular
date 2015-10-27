@@ -14,11 +14,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading userPanelHeader">
                         <span>General Settings</span>
-                        {{#if editAttribute}}
+                       
                         <span class="btnEdit"><a id="EditPrintApplication" class="btn btn-default" href="#EditPrintApplication/{{id}}">Edit</a></span>
-                        {{else}}
+                       
                         <span class="btnEdit"><a class="btn btn-default" href="#ApplicationList">Cancel</a></span>
-                        {{/if}}
+                      
                     </div>
                     <!---->
                     <div class="panel-body">
@@ -26,56 +26,52 @@
                             <div class="form-group">
                                 <label for="sourcePrintQueueName" class="col-sm-4 control-label">Source Name</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="sourcePrintQueueName" errorName="Source Name" name="sourcePrintQueueName" placeholder="Test Printer Application Name" value={{sourcePrintQueueName}}>
+                                    <input type="text" ng-readonly="data.editAttribute" class="form-control" id="sourcePrintQueueName" errorName="Source Name" name="sourcePrintQueueName" placeholder="Test Printer Application Name" value={{data.sourcePrintQueueName}}>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="modified" class="col-sm-4 control-label">Modified</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="modified" errorName="Modified" name="modified" placeholder="1/12/2009" value={{modified}}>
+                                    <input type="text" {{data.editAttribute}} class="form-control" id="modified" errorName="Modified" name="modified" placeholder="1/12/2009" value={{data.modified}}>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="serverName" class="col-sm-4 control-label">Server Name</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="serverName" errorName="Server Name" name="serverName" placeholder="megaserver" value={{serverName}}>
+                                    <input type="text" {{data.editAttribute}} class="form-control" id="serverName" errorName="Server Name" name="serverName" placeholder="megaserver" value={{data.serverName}}>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="destinationPrintQueueName" class="col-sm-4 control-label">Destination Name</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="destinationPrintQueueName" errorName="Destination Name" name="destinationPrintQueueName" placeholder="Test Printer Application Name" value={{destinationPrintQueueName}}>
+                                    <input type="text" {{data.editAttribute}} class="form-control" id="destinationPrintQueueName" errorName="Destination Name" name="destinationPrintQueueName" placeholder="Test Printer Application Name" value={{data.destinationPrintQueueName}}>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="profile" class="col-sm-4 control-label">Security Profile</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="profile" errorName="Security Profile" name="profile" placeholder="Profile Name" value={{profile}}>
+                                    <input type="text" {{data.editAttribute}} class="form-control" id="profile" errorName="Security Profile" name="profile" placeholder="Profile Name" value={{data.profile.name}}>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="enabled" class="col-sm-4 control-label">Enabled</label>
                                 <div class="col-sm-1">
-                                    {{#if editAttribute}}
-                                    {{#if enabled}}
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enabled" name="enabled" disabled checked>
-                                    {{else}}
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enabled" name="enabled" disabled>
-                                    {{/if}}
-                                    {{else}}
-                                    {{#if enabled}}
+                                  
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enabled" name="enabled" disabled checked>
+                                   
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enabled" name="enabled" disabled>
+                                  
                                     <input type="hidden" name="enabled" id="enabled" value="True" />
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enabledMock" name="enabledMock" checked>
-                                    {{else}}
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enabledMock" name="enabledMock" checked>
+                                    
                                     <input type="hidden" name="enabled" id="enabled" value="False" />
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enabledMock" name="enabledMock">
-                                    {{/if}}
-                                    {{/if}}
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enabledMock" name="enabledMock">
+                                   
                                 </div>
                             </div>
 
@@ -93,14 +89,14 @@
                             <div class="form-group">
                                 <label for="pantographDensity" class="col-sm-4 control-label">Pantograph Density</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="pantographDensity" errorName="Pantograph Density" name="pantographDensity" placeholder="Pantograph Density" value={{pantographDensity}}>
+                                    <input type="text" {{data.editAttribute}} class="form-control" id="pantographDensity" errorName="Pantograph Density" name="pantographDensity" placeholder="Pantograph Density" value={{data.pantographDensity}}>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="pantographNoise" class="col-sm-4 control-label">PantographNoise</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="pantographNoise" errorName="Pantograph Noise" name="pantographNoise" placeholder="Pantograph Noise" value={{pantographNoise}}>
+                                    <input type="text" {{data.editAttribute}} class="form-control" id="pantographNoise" errorName="Pantograph Noise" name="pantographNoise" placeholder="Pantograph Noise" value={{data.pantographNoise}}>
                                 </div>
                             </div>
                         </div>
@@ -118,49 +114,41 @@
                             <div class="form-group">
                                 <label for="enabled" class="col-sm-4 control-label">Enable PreProcessing Backup</label>
                                 <div class="col-sm-1">
-                                    {{#if editAttribute}}
-                                    {{#if enablePreProcessingBackup}}
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enablePreProcessingBackup" name="enablePreProcessingBackup" disabled checked>
-                                    {{else}}
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enablePreProcessingBackup" name="enablePreProcessingBackup" disabled>
-                                    {{/if}}
-                                    {{else}}
-                                    {{#if enablePreProcessingBackup}}
+                                  
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enablePreProcessingBackup" name="enablePreProcessingBackup" disabled checked>
+                                   
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enablePreProcessingBackup" name="enablePreProcessingBackup" disabled>
+                                  
                                     <input type="hidden" name="enablePreProcessingBackup" id="enablePreProcessingBackup" value="True" />
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enablePreProcessingBackupMock" name="enablePreProcessingBackupMock" checked>
-                                    {{else}}
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enablePreProcessingBackupMock" name="enablePreProcessingBackupMock" checked>
+                                   
                                     <input type="hidden" name="enablePreProcessingBackup" id="enablePreProcessingBackup" value="False" />
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enablePreProcessingBackupMock" name="enablePreProcessingBackupMock">
-                                    {{/if}}
-                                    {{/if}}
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enablePreProcessingBackupMock" name="enablePreProcessingBackupMock">
+                                   
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="PreProcessingBackupPath" class="col-sm-4 control-label">PreProcessing Backup Path</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="PreProcessingBackupPath" errorName="PreProcessing Backup Path" name="PreProcessingBackupPath" placeholder="some path" value={{PreProcessingBackupPath}}>
+                                    <input type="text" {{data.editAttribute}} class="form-control" id="PreProcessingBackupPath" errorName="PreProcessing Backup Path" name="PreProcessingBackupPath" placeholder="some path" value={{data.PreProcessingBackupPath}}>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="enabled" class="col-sm-4 control-label">Enable PostProcessing Backup</label>
                                 <div class="col-sm-1">
-                                    {{#if editAttribute}}
-                                    {{#if enablePostProcessingBackup}}
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enablePostProcessingBackup" name="enablePostProcessingBackup" disabled checked>
-                                    {{else}}
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enablePostProcessingBackup" name="enablePostProcessingBackup" disabled>
-                                    {{/if}}
-                                    {{else}}
-                                    {{#if enablePostProcessingBackup}}
+                                  
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enablePostProcessingBackup" name="enablePostProcessingBackup" disabled checked>
+                                  
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enablePostProcessingBackup" name="enablePostProcessingBackup" disabled>
+                                  
                                     <input type="hidden" name="enablePreProcessingBackup" id="enablePostProcessingBackup" value="True" />
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enablePostProcessingBackupMock" name="enablePostProcessingBackupMock" checked>
-                                    {{else}}
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enablePostProcessingBackupMock" name="enablePostProcessingBackupMock" checked>
+                                  
                                     <input type="hidden" name="enablePostProcessingBackup" id="enablePostProcessingBackup" value="False" />
-                                    <input type="checkbox" {{editAttribute}} class="form-control" id="enablePostProcessingBackupMock" name="enablePostProcessingBackupMock">
-                                    {{/if}}
-                                    {{/if}}
+                                    <input type="checkbox" {{data.editAttribute}} class="form-control" id="enablePostProcessingBackupMock" name="enablePostProcessingBackupMock">
+                                    
                                 </div>
                             </div>
 
@@ -168,7 +156,7 @@
                             <div class="form-group">
                                 <label for="PostProcessingBackupPath" class="col-sm-4 control-label">PostProcessing Backup Path</label>
                                 <div class="col-sm-8">
-                                    <input type="text" {{editAttribute}} class="form-control" id="PostProcessingBackupPath" errorName="PostProcessing Backup Path" name="PostProcessingBackupPath" placeholder="some path" value={{PostProcessingBackupPath}}>
+                                    <input type="text" {{data.editAttribute}} class="form-control" id="PostProcessingBackupPath" errorName="PostProcessing Backup Path" name="PostProcessingBackupPath" placeholder="some path" value={{data.PostProcessingBackupPath}}>
                                 </div>
                             </div>
                         </div>                   
@@ -200,7 +188,7 @@
             </div>
         </div>
 
-        <script type="text/javascript">
+    <!--    <script type="text/javascript">
             $("#enabledMock").click(function () {
                 var currentEnabled = $("#enabled").val();
                 if (currentEnabled == "True") {
@@ -234,4 +222,4 @@
             });
 
 
-        </script>
+        </script> -->

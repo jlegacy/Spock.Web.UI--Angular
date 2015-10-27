@@ -14,23 +14,24 @@
     <link href="./Scripts/plugins/jquery.growl/jquery.growl.css" rel="stylesheet">
    <link href="./Content/Custom.css" rel="stylesheet">
 
+   
+		  
   <!-- SPELLS -->
-  <script src="./Scripts/plugins/jquery-1.11.3/jquery-1.11.3.min.js"></script> 
+ <script src="./Scripts/plugins/jquery-1.11.3/jquery-1.11.3.min.js"></script> 
 <script src="./Scripts/plugins/bootstrap-3.2.0/js/bootstrap.min.js"></script>  
   
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.js"></script>
- 
-  <script src="/scripts/script.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+		  
   
-  <script src="./Scripts/plugins/jquery-ui-1.10.4/ui/jquery-ui.js"></script> 
+ 
+<script src="./Scripts/plugins/jquery-ui-1.10.4/ui/jquery-ui.js"></script> 
 <script src="./Scripts/plugins/dalert-1.1.0/dalert-1.1.0-min.js"></script>
-<script src="./Scripts/plugins/routie-0.3.2/routie-0.3.2.min.js"></script>
 <script src="./Scripts/plugins/handlebars-4.0.2/handlebars-v4.0.2.min.js"></script>
 <script src="./Scripts/plugins/localize-0.1.0/localize-0.1.0.min.js"></script>
 <script src="./Scripts/plugins/jquery.growl/jquery.growl.js"></script>
 <script src="./Scripts/plugins/underscore-1.8.3/underscore-1.8.3.min.js"></script>
+
 
 <script src="./Scripts/plugins/serializeToJSON/serializeToJsonV1-1-1.min.js"></script>
 <script src="./Scripts/plugins/dalert-1.1.0/dalert-1.1.0-min.js"></script>
@@ -39,17 +40,21 @@
 <script src="./Scripts/plugins/DataTables-1.10.9/js/jquery.dataTables.min.js"></script>
 
 <script src="./PageScripts/$App.js"></script>
+
 <script src="./PageScripts/router.js"></script>
 <script src="./PageScripts/Main.js"></script>
+
+<script src="./PageScripts/Controllers/ApplicationControllers.js"></script>
+<script src="./PageScripts/Services/ApplicationServices.js"></script>
 
 <script src="./PageScripts/Views/UserViews.js"></script>
 <script src="./PageScripts/Models/UserModels.js"></script>
 
+<script src="./PageScripts/Controllers/UserControllers.js"></script>
+<script src="./PageScripts/Services/UserServices.js"></script>
+
 <script src="./PageScripts/Views/ProfileViews.js"></script>
 <script src="./PageScripts/Models/ProfileModels.js"></script>
-
-<script src="./PageScripts/Views/ApplicationViews.js"></script>
-<script src="./PageScripts/Models/ApplicationModels.js"></script>
 
 <script src="./PageScripts/Views/PrintTraceRegionsViews.js"></script>
 <script src="./PageScripts/Models/PrintTraceRegionsModels.js"></script>
@@ -60,7 +65,11 @@
 <script src="./PageScripts/Views/SystemSettingsViews.js"></script>
 <script src="./PageScripts/Models/SystemSettingsModels.js"></script>
 
+
+
+
 <script src="./PageScripts/Views/CustomErrorsViews.js"></script>
+
 </head>
 
 <!-- define angular controller -->
@@ -93,7 +102,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav mainNavLinks">
-                    <li><a href="#ListApplications">Applications</a></li>
+                    <li><a ui-sref="ListApplications">Applications</a></li>
                     <li><a href="#ListProfiles">Profiles</a></li>
 
                     <li class="dropdown">
@@ -119,7 +128,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#ListSystemSettings">System Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="#ListUsers">User Management</a></li>
+                             <li><a ui-sref="ListUsers">User Management</a></li> 
                             <li class="divider"></li>
                             <li><a href="javascript:void(0)" class="todo">Data Capture Regions</a></li>
                             <li class="divider"></li>
@@ -137,7 +146,7 @@
                             <li class="divider"></li>
                             <li><a href="#UserChangePassword/{{id}}">Change Password</a></li>
                             <li class="divider"></li>
-                            <li><a href="#LogOut">Logout</a></li>
+                            <li><a ui-sref="Logout">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -151,7 +160,7 @@
   <div id="main">
     <!-- angular templating -->
 		<!-- this is where content will be injected -->
-    <div ng-view></div>
+  <div ui-view></div>  
   </div>
   
   

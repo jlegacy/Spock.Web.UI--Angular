@@ -1,5 +1,3 @@
-
-
 <div class="row nestedPage">
     <div class="col-md-5">
 
@@ -17,44 +15,43 @@
                     <div class="form-group">
                         <label for="firstName" class="col-sm-4 control-label">First Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="firstName" errorName="First Name" name="firstName" placeholder="Enter First Name" value={{firstName}}>
+                            <input ng-readonly="readOnly" type="text" class="form-control" id="firstName" errorName="First Name" name="firstName" placeholder="Enter First Name" value={{data.firstName}}>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="lastName" class="col-sm-4 control-label">Last Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="lastName" errorName="Last Name" name="lastName" placeholder="Enter Last Name" value={{lastName}}>
+                            <input ng-readonly="readOnly" type="text" class="form-control" id="lastName" errorName="Last Name" name="lastName" placeholder="Enter Last Name" value={{data.lastName}}>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="email" class="col-sm-4 control-label">Email Address</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="email" errorName="Email" name="email" placeholder="Enter Email address" value={{email}}>
+                            <input ng-readonly="readOnly" type="text" class="form-control" id="email" errorName="Email" name="email" placeholder="Enter Email address" value={{data.email}}>
                         </div>
                     </div>
 
-                    {{#if create}}
-
+                    <div ng-if="create == true">
                     <div class="form-group">
                         <label for="newPassword" class="col-sm-4 control-label">New Password</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" id="password" errorName="New Password" name="password" placeholder="New Password">
+                            <input ng-readonly="readOnly" type="password" class="form-control" id="password" errorName="New Password" name="password" placeholder="New Password">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="confirmPassword" class="col-sm-4 control-label">Confirm Password</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" id="confirmPassword" errorName="Confirm Password" name="confirmPassword" placeholder="Confirm Password">
+                            <input ng-readonly="readOnly" type="password" class="form-control" id="confirmPassword" errorName="Confirm Password" name="confirmPassword" placeholder="Confirm Password">
                         </div>
                     </div>
 
-                    {{/if}}
+                   </div>
 					
 					<div id="errorPanel"></div>
-                    <div><button type="button" id="UserSubmit" class="btn btnKermit btnRight">{{buttonText}}</button></div>
+                    <div><button type="button" id="UserSubmit" ng-click="submitForm()" class="btn btnKermit btnRight">{{buttonText}}</button></div>
 
                 </form>
             </div>
